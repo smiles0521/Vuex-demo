@@ -8,6 +8,7 @@ Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
     let flag = JSON.parse(sessionStorage.getItem("store"))
+    flag = flag ? flag : {}
     if (flag.isLogin){
         store.state.isLogin = true
         if(!to.meta.isLogin) {
